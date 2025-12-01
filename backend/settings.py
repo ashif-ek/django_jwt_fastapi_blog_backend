@@ -16,7 +16,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     # Render backend hostname
-    "your-backend-name.onrender.com",
+    "https://django-jwt-fastapi-blog-backend-1.onrender.com",
     # Vercel frontend hostname
     "your-frontend-name.vercel.app",
 ]
