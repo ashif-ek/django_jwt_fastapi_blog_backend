@@ -18,16 +18,11 @@ class Post(models.Model):
     class Meta:
         ordering = ["-created_at"]
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            base_slug = slugify(self.title)[:50]
-            slug = base_slug
-            counter = 1
-            while Post.objects.filter(slug=slug).exclude(pk=self.pk).exists():
-                slug = f"{base_slug}-{counter}"
-                counter += 1
-            self.slug = slug
-        super().save(*args, **kwargs)
+    # Logic moved to Service Layer in Clean Architecture
+    # def save(self, *args, **kwargs):
+    #     if not self.slug: ...
+    #     super().save(*args, **kwargs)
+    pass
 
     def __str__(self):
         return f"{self.title} by {self.author.username}"
